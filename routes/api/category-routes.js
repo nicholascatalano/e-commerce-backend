@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
-    const categoryData = await Product.findOne({
+    const categoryData = await Category.findOne({
       where: {
         id: req.params.id,
       },
@@ -47,7 +47,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   // create a new category
   try {
-    const categoryData = await Tag.create({
+    const categoryData = await Category.create({
       id: req.body.id,
       category_name: req.body.category_name,
     });
@@ -60,7 +60,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   // update a category by its `id` value
   try {
-    const categoryData = await Tag.update(
+    const categoryData = await Category.update(
       {
         category_name: req.body.category_name,
       },
@@ -79,7 +79,7 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   // delete a category by its `id` value
   try {
-    const categoryData = await Tag.destroy({
+    const categoryData = await Category.destroy({
       where: {
         id: req.params.id,
       },
